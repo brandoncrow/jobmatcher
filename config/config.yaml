@@ -1,0 +1,15 @@
+greenhouse_companies:
+  - notion
+  - stripe
+  - figma
+  - airbnb
+  - datadog
+  - asana
+
+keywords:
+  - data engineer
+  - analytics
+  - migration
+  - automation
+  - ETL
+  - python
