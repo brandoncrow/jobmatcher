@@ -13,3 +13,9 @@ keywords:
   - automation
   - ETL
   - python
+
+filter:
+  days_old_max: 7
+  dedup_fields: ["title", "location.name"]
+  required_keywords: ["data", "engineer"]
+  score_boost_keywords: ["remote", "python", "etl", "sql"]

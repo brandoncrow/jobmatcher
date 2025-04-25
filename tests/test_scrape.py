@@ -1,9 +1,6 @@
-# tests/test_scrape.py
-
 import sys
 from pathlib import Path
 
-# Add the job-matcher directory to the system path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from scripts import scrape_greenhouse
