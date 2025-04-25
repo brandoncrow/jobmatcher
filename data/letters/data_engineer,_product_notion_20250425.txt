@@ -1,0 +1,13 @@
+Dear Hiring Team,
+
+I am excited to apply for the Data Engineer, Product position at Notion. With a strong background in full-scale data migrations, ETL development, and data quality automation, I bring a proven ability to deliver reliable, scalable solutions that improve data usability across business domains.
+
+At PakEnergy, I led the migration of legacy oil & gas client systems to modern cloud platforms, designing ETL pipelines using Python, SQL Server, and YAML-driven configurations. I also built QA automation processes in T-SQL, reducing manual error detection and streamlining client onboarding.
+
+Currently, I am advancing my cloud data engineering expertise through AWS and dbt certifications, complementing my hands-on experience with technologies like Snowflake, Tableau, and Git. I am passionate about building efficient, fault-tolerant pipelines that empower teams to make better data-driven decisions.
+
+I would be thrilled to bring my technical skills, collaborative approach, and continuous improvement mindset to Notion. Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute to your team.
+
+Sincerely,
+Brandon Crow
+(405) 408-5892 | brandoncrow87@gmail.com
