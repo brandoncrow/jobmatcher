@@ -1,0 +1,13 @@
+Dear {hiring_manager},
+
+I am writing to express my interest in the {job_title} role at {company_name}. With a background in data migrations, ETL pipeline development, and advanced analytics instruction, I have cultivated the skills necessary to transform raw data into actionable insights for business stakeholders.
+
+In my role at PakEnergy, I engineered ETL workflows that mapped, transformed, and validated complex client data, improving data quality and integration into cloud-based platforms. Prior to that, as a Data Science & Analytics Instructor at the University of Oklahoma, I designed and taught Python, machine learning, and data visualization courses for professionals transitioning into analytics roles.
+
+Currently pursuing AWS and dbt certifications, I am committed to building modern, scalable data solutions that drive value. My hands-on experience with SQL, Snowflake, Tableau, and Git further strengthens my ability to bridge the gap between raw data and decision-ready analytics.
+
+I am excited about the opportunity to apply my technical skills and passion for data-driven storytelling at {company_name}. Thank you for considering my application. I look forward to connecting.
+
+Sincerely,
+{user_name}
+{user_phone} | {user_email}

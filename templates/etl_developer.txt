@@ -1,0 +1,13 @@
+Dear {hiring_manager},
+
+I am excited to express my interest in the {job_title} role at {company_name}. With a strong background in designing robust ETL pipelines for data migration and transformation, I thrive on building systems that move data efficiently, reliably, and at scale.
+
+While at PakEnergy, I led the development of reusable Python and SQL-based ETL workflows to migrate oil & gas client data from legacy systems into modern SaaS platforms. These pipelines incorporated client-specific mapping, logging, rollback logic, and validation, enabling smooth onboarding across complex and varied source data environments.
+
+My technical stack includes T-SQL, Python (Pandas), YAML configuration files, and tools like Snowflake, Git, and Tableau. I am also in the process of earning AWS and dbt certifications to expand my cloud-native data pipeline capabilities.
+
+I am eager to bring my passion for clean data engineering and scalable architecture to {company_name}. Thank you for considering my application. I look forward to the opportunity to contribute.
+
+Sincerely,
+{user_name}
+{user_phone} | {user_email}

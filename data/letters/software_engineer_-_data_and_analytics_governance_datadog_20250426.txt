@@ -1,6 +1,6 @@
 Dear Hiring Team,
 
-I am excited to apply for the Senior Software Engineer - Python Profiler position at Datadog. With a strong background in full-scale data migrations, ETL development, and data quality automation, I bring a proven ability to deliver reliable, scalable solutions that improve data usability across business domains.
+I am excited to apply for the Software Engineer - Data & Analytics Governance position at Datadog. With a strong background in full-scale data migrations, ETL development, and data quality automation, I bring a proven ability to deliver reliable, scalable solutions that improve data usability across business domains.
 
 At PakEnergy, I led the migration of legacy oil & gas client systems to modern cloud platforms, designing ETL pipelines using Python, SQL Server, and YAML-driven configurations. I also built QA automation processes in T-SQL, reducing manual error detection and streamlining client onboarding.
 

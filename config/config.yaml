@@ -1,3 +1,38 @@
+# General configuration
+general:
+  top_n_jobs: 5         # Number of jobs to generate letters for
+  days_old_max: 1       # Max age of job postings in days
+  email_mode: "local"   # "local" or "smtp"
+
+# Search/filter configuration
+filter:
+  required_keywords:
+    - data
+    - engineer
+    - analytics
+    - migration
+    - automation
+  score_boost_keywords:
+    - remote
+    - python
+    - etl
+
+# User profile (for cover letters)
+user_profile:
+  name: "Brandon Crow"
+  email: "brandoncrow87@gmail.com"
+  phone: "(405) 408-5892"
+
+# Cover letter templates mapping (job title keyword -> template filename)
+templates:
+  data engineer: "data_engineer.txt"
+  analytics engineer: "analytics_engineer.txt"
+  integration: "integration.txt"
+  quality: "data_quality_engineer.txt"
+  etl: "etl_developer.txt"
+  default: "data_engineer.txt"
+
+# Greenhouse companies to scrape
 greenhouse_companies:
   - notion
   - stripe
@@ -5,17 +40,3 @@ greenhouse_companies:
   - airbnb
   - datadog
   - asana
-
-keywords:
-  - data engineer
-  - analytics
-  - migration
-  - automation
-  - ETL
-  - python
-
-filter:
-  days_old_max: 7
-  dedup_fields: ["title", "location.name"]
-  required_keywords: ["data", "engineer"]
-  score_boost_keywords: ["remote", "python", "etl", "sql"]

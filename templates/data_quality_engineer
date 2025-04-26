@@ -1,0 +1,13 @@
+Dear {hiring_manager},
+
+I am writing to apply for the {job_title} position at {company_name}. With hands-on experience designing automated quality control systems and validating large-scale data pipelines, I bring a meticulous and scalable approach to ensuring data integrity.
+
+At PakEnergy, I developed a peer QA review automation process using T-SQL that significantly reduced manual oversight and caught issues earlier in the data pipeline. I also designed YAML-driven ETL workflows that enabled consistent validation and rollback capabilities across multiple client environments.
+
+My experience spans SQL Server, Python, Tableau, and Snowflake, and I am currently pursuing AWS and dbt certifications to strengthen my cloud and data modeling skills. I am passionate about creating systems that catch issues before they impact operations and ensuring data teams can trust their inputs.
+
+I would be excited to bring my precision, engineering mindset, and automation skills to the Data Quality team at {company_name}. Thank you for your time and consideration.
+
+Sincerely,
+{user_name}
+{user_phone} | {user_email}

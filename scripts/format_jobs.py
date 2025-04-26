@@ -3,16 +3,24 @@ import json
 from datetime import datetime, timedelta
 from pathlib import Path
 import yaml
+import logging
+
+from scripts.scrape_greenhouse import run as scrape_run
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger(__name__)
 
 CONFIG_PATH = Path(__file__).resolve().parents[1] / 'config' / 'config.yaml'
 OUT_DIR = Path(__file__).resolve().parents[1] / 'data' / 'processed'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def load_config():
+    logger.info("Loading configuration...")
     with open(CONFIG_PATH, 'r') as f:
         return yaml.safe_load(f)
 
 def deduplicate(jobs):
+    logger.info("Deduplicating jobs...")
     seen = set()
     unique = []
     for job in jobs:
@@ -21,6 +29,7 @@ def deduplicate(jobs):
         if hash_ not in seen:
             seen.add(hash_)
             unique.append(job)
+    logger.info(f"Found {len(unique)} unique jobs after deduplication.")
     return unique
 
 def is_recent(job, max_days):
@@ -49,8 +58,9 @@ def normalize(job):
     }
 
 def run(jobs):
+    logger.info("Starting job formatting and scoring...")
     config = load_config()
-    max_days = config["filter"]["days_old_max"]
+    max_days = config["general"]["days_old_max"]
     keywords = config["filter"]["required_keywords"]
     boosts = config["filter"]["score_boost_keywords"]
 
@@ -66,10 +76,9 @@ def run(jobs):
     with open(out_file, "w") as f:
         json.dump(jobs, f, indent=2)
 
-    print(f"Saved {len(jobs)} jobs to {out_file}")
+    logger.info(f"Saved {len(jobs)} formatted jobs to {out_file}")
     return jobs
 
 if __name__ == "__main__":
-    from scrape_greenhouse import run as scrape_run
     jobs = scrape_run()
     run(jobs)

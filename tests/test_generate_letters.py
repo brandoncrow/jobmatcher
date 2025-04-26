@@ -1,34 +1,41 @@
-import pytest
+from pathlib import Path
+import yaml
 from scripts import generate_letters
 
-def test_select_template_exact_matches():
-    assert generate_letters.select_template("Analytics Engineer") == generate_letters.TEMPLATES["analytics engineer"]
-    assert generate_letters.select_template("Data Engineer") == generate_letters.TEMPLATES["data engineer"]
-    assert generate_letters.select_template("ETL Developer") == generate_letters.TEMPLATES["etl"]
-    assert generate_letters.select_template("Data Integration Specialist") == generate_letters.TEMPLATES["integration"]
-    assert generate_letters.select_template("Data Quality Engineer") == generate_letters.TEMPLATES["quality"]
+CONFIG_PATH = Path(__file__).resolve().parents[1] / 'config' / 'config.yaml'
 
+def load_config():
+    with open(CONFIG_PATH, 'r') as f:
+        return yaml.safe_load(f)
+
+def test_select_template_exact_matches():
+    config = load_config()
+    assert generate_letters.select_template("Analytics Engineer", config).name == "analytics_engineer.txt"
+    assert generate_letters.select_template("Data Engineer", config).name == "data_engineer.txt"
+    assert generate_letters.select_template("ETL Developer", config).name == "etl_developer.txt"
+    assert generate_letters.select_template("Data Integration Specialist", config).name == "integration.txt"
+    assert generate_letters.select_template("Data Quality Engineer", config).name == "data_quality_engineer.txt"
 
 def test_select_template_default():
-    template = generate_letters.select_template("Senior Data Scientist")
-    assert "data engineer" in template.lower()  # falls back to default template
+    config = load_config()
+    template = generate_letters.select_template("Senior Data Scientist", config)
+    assert template.name == config["templates"]["default"]
 
 def test_clean_filename_basic():
     cleaned = generate_letters.clean_filename("Data Engineer / Automation & AI")
     assert cleaned == "data_engineer_-_automation_and_ai"
 
 def test_create_letter_without_crashing():
-    # simulate a job
+    config = load_config()
+    user_profile = config["user_profile"]
+    template_path = generate_letters.select_template("Data Engineer", config)
+
     job = {
         "title": "Data Engineer",
         "company": "ACME Corp"
     }
-    template = generate_letters.select_template(job["title"])
-    letter = template.format(
-        hiring_manager="Hiring Team",
-        job_title=job["title"],
-        company_name=job["company"]
-    )
+
+    letter = generate_letters.fill_template(template_path, job["title"], job["company"], user_profile)
     assert "ACME Corp" in letter
     assert "Data Engineer" in letter
-    assert "Hiring Team" in letter
+    assert user_profile["name"] in letter

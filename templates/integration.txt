@@ -1,0 +1,13 @@
+Dear {hiring_manager},
+
+I am pleased to submit my application for the {job_title} position at {company_name}. With hands-on experience building pipelines that integrate, transform, and validate diverse data sources, I am passionate about solving complex data challenges that drive business innovation.
+
+At PakEnergy, I developed ETL solutions integrating multiple client files into a cloud-based SaaS database, ensuring seamless onboarding across varied legacy systems. I also built QA automation frameworks in T-SQL, significantly improving data integrity and reducing manual review cycles.
+
+My technical toolkit includes Python (Pandas, NumPy), SQL (T-SQL, PostgreSQL), Tableau, Snowflake, and Git. I am currently pursuing AWS and dbt certifications to deepen my cloud integration skills and stay ahead in a rapidly evolving field.
+
+I am eager to contribute my problem-solving skills, technical acumen, and commitment to continuous improvement to the data initiatives at {company_name}. Thank you for your time and consideration.
+
+Sincerely,
+{user_name}
+{user_phone} | {user_email}
