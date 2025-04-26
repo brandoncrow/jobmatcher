@@ -1,13 +1,24 @@
-Dear Hiring Team,
+**Brandon Crow**  
+brandoncrow87@gmail.com  
+(405) 408-5892  
+[Date]  
 
-I am excited to apply for the Software Engineer - Data & Analytics Platform position at Datadog. With a strong background in full-scale data migrations, ETL development, and data quality automation, I bring a proven ability to deliver reliable, scalable solutions that improve data usability across business domains.
+Hiring Manager  
+Datadog  
+Paris, France  
 
-At PakEnergy, I led the migration of legacy oil & gas client systems to modern cloud platforms, designing ETL pipelines using Python, SQL Server, and YAML-driven configurations. I also built QA automation processes in T-SQL, reducing manual error detection and streamlining client onboarding.
+Dear Hiring Manager,
 
-Currently, I am advancing my cloud data engineering expertise through AWS and dbt certifications, complementing my hands-on experience with technologies like Snowflake, Tableau, and Git. I am passionate about building efficient, fault-tolerant pipelines that empower teams to make better data-driven decisions.
+I am writing to express my interest in the Software Engineer - Data & Analytics Platform position at Datadog, as advertised. With a robust background in data migrations, ETL development, and cloud platforms, I am excited about the opportunity to contribute to Datadog’s innovative team in Paris.
 
-I would be thrilled to bring my technical skills, collaborative approach, and continuous improvement mindset to Datadog. Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute to your team.
+Throughout my career, I have honed my skills in data engineering, particularly in developing and automating data quality processes. My experience with AWS, Python, SQL Server, Snowflake, and Tableau has equipped me with the tools necessary to design and implement efficient data solutions. I am particularly passionate about leveraging these technologies to solve complex business problems and drive data-driven decision-making.
 
-Sincerely,
+At my previous position, I led a team in migrating legacy systems to a cloud-based architecture, significantly improving data accessibility and reliability. This experience taught me the importance of collaboration and adaptability in fast-paced environments, qualities I am eager to bring to Datadog.
+
+I am drawn to Datadog because of its commitment to innovation and excellence in data analytics. The prospect of working with a team dedicated to pushing the boundaries of data engineering aligns perfectly with my professional aspirations and passion for continuous learning and improvement.
+
+I would be thrilled to discuss how my experience and skills can contribute to the success of Datadog’s Data & Analytics Platform. Thank you for considering my application. I look forward to the possibility of discussing this exciting opportunity with you.
+
+Warm regards,
+
 Brandon Crow
-(405) 408-5892 | brandoncrow87@gmail.com

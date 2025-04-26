@@ -1,5 +1,11 @@
-from scripts import scrape_greenhouse, format_jobs, generate_letters, send_email
-import logging
+from scripts import scrape_greenhouse, format_jobs, generate_letters, send_email, gpt_letters
+import logging, yaml
+
+CONFIG_PATH = Path(__file__).resolve().parents[1] / 'config' / 'config.yaml'
+
+def load_config():
+    with open(CONFIG_PATH, "r") as f:
+        return yaml.safe_load(f)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -19,7 +25,16 @@ def main():
         filtered_jobs = format_jobs.run(raw_jobs)
 
         logger.info("[3/4] Generating cover letters...")
-        generate_letters.run(top_n=5)
+
+        config = load_config()
+        use_gpt = config['general'].get('use_gpt', False)
+
+        if use_gpt:
+            logger.info("Using GPT-generated cover letters...")
+            gpt_letters.run(top_n=config['general']['top_n_jobs'])
+        else:
+            logger.info("Using template-based cover letters...")
+            generate_letters.run(top_n=config['general']['top_n_jobs'])
 
         logger.info("[4/4] Sending daily email summary...")
         send_email.run()

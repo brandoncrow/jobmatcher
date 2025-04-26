@@ -1,13 +1,24 @@
-Dear Hiring Team,
+Brandon Crow  
+brandoncrow87@gmail.com  
+(405) 408-5892  
+[Date]
 
-I am excited to apply for the Senior Software Engineer - Python Profiler position at Datadog. With a strong background in full-scale data migrations, ETL development, and data quality automation, I bring a proven ability to deliver reliable, scalable solutions that improve data usability across business domains.
+Hiring Manager  
+Datadog  
+New York, New York, USA  
 
-At PakEnergy, I led the migration of legacy oil & gas client systems to modern cloud platforms, designing ETL pipelines using Python, SQL Server, and YAML-driven configurations. I also built QA automation processes in T-SQL, reducing manual error detection and streamlining client onboarding.
+Dear Hiring Manager,
 
-Currently, I am advancing my cloud data engineering expertise through AWS and dbt certifications, complementing my hands-on experience with technologies like Snowflake, Tableau, and Git. I am passionate about building efficient, fault-tolerant pipelines that empower teams to make better data-driven decisions.
+I am writing to express my interest in the Senior Software Engineer - Python Profiler position at Datadog, as advertised. With a robust background in data engineering and a passion for leveraging technology to solve complex business problems, I am excited about the opportunity to contribute to your team in New York.
 
-I would be thrilled to bring my technical skills, collaborative approach, and continuous improvement mindset to Datadog. Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute to your team.
+Throughout my career, I have honed my skills in data migrations, ETL development, and data quality automation, with a strong emphasis on utilizing cloud platforms such as AWS. My proficiency with data tools, including Python, SQL Server, Snowflake, and Tableau, has enabled me to deliver efficient and scalable solutions that drive business success.
 
-Sincerely,
+I am particularly drawn to this role at Datadog because of the company’s commitment to innovation and excellence in monitoring and security solutions. I am eager to bring my expertise in Python and my problem-solving mindset to your team, helping to enhance the performance and reliability of Datadog's services.
+
+My professional journey has been driven by a genuine enthusiasm for data engineering and a desire to tackle challenges that make a tangible impact on business operations. I am confident that my technical skills and passion align well with the goals of Datadog, and I am enthusiastic about the prospect of contributing to your innovative projects.
+
+I would welcome the opportunity to discuss how my background, skills, and interests align with the needs of your team. Thank you for considering my application. I look forward to the possibility of contributing to Datadog’s success.
+
+Warm regards,
+
 Brandon Crow
-(405) 408-5892 | brandoncrow87@gmail.com

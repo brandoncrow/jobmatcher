@@ -3,6 +3,7 @@ general:
   top_n_jobs: 5         # Number of jobs to generate letters for
   days_old_max: 1       # Max age of job postings in days
   email_mode: "local"   # "local" or "smtp"
+  use_gpt: false        # true or false
 
 # Search/filter configuration
 filter:
@@ -40,3 +41,7 @@ greenhouse_companies:
   - airbnb
   - datadog
   - asana
+
+model:
+  name: gpt-4o
+  temperature: 0.5
