@@ -1,11 +1,9 @@
-# General configuration
+# config/config.yaml
 general:
-  top_n_jobs: 5         # Number of jobs to generate letters for
-  days_old_max: 3       # Max age of job postings in days
-  # email_mode: "local"   # "local" or "smtp"
-  use_gpt: false        # true or false
+  top_n_jobs: 5
+  days_old_max: 5
+  use_gpt: false
 
-# Search/filter configuration
 filter:
   required_keywords:
     - data
@@ -18,13 +16,11 @@ filter:
     - python
     - etl
 
-# User profile (for cover letters)
 user_profile:
   name: "Brandon Crow"
   email: "brandoncrow87@gmail.com"
   phone: "(405) 408-5892"
 
-# Cover letter templates mapping (job title keyword -> template filename)
 templates:
   data engineer: "data_engineer.txt"
   analytics engineer: "analytics_engineer.txt"
@@ -33,23 +29,24 @@ templates:
   etl: "etl_developer.txt"
   default: "data_engineer.txt"
 
-# Greenhouse companies to scrape
-greenhouse_companies:
-  - notion
-  - stripe
-  - figma
-  - airbnb
-  - datadog
-  - asana
+scrapers:
+  greenhouse:
+    companies:
+      - notion
+      - stripe
+      - figma
+      - airbnb
+      - datadog
+      - asana
 
 model:
   name: gpt-4o
   temperature: 0.5
 
 email:
-  mode: smtp  # options: "local" (print only), "smtp" (send email)
+  mode: smtp
   smtp_server: smtp.gmail.com
   smtp_port: 587
   from_address: brandoncrow87@gmail.com
   to_address: brandoncrow87@gmail.com
-  subject_prefix: "Your Daily Job Matches"  # or anything you want
+  subject_prefix: "Your Daily Job Matches"

@@ -49,14 +49,17 @@ def filter_jobs(jobs, keywords):
     logger.info(f"{len(matched)} jobs matched keywords: {keywords}")
     return matched
 
-def run():
+def run(companies=None):
     logger.info("Starting scrape_greenhouse pipeline...")
+
     config = load_config()
     keywords = config["filter"]["required_keywords"]
-    companies = config["greenhouse_companies"]
+
+    if companies is None:
+        companies = config.get("greenhouse_companies", [])
 
     if not companies:
-        logger.error("No companies specified in config")
+        logger.error("No companies specified for scraping.")
         return []
 
     all_jobs = []
