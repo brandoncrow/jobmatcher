@@ -54,7 +54,8 @@ def normalize(job):
         "company": job["company"],
         "location": job["location"],
         "url": job.get("absolute_url") or job.get("url", ""),
-        "updated_at": job["updated_at"]
+        "updated_at": job["updated_at"],
+        "score": 0
     }
 
 def run(jobs):

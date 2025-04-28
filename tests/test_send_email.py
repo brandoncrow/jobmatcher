@@ -27,8 +27,7 @@ def test_compose_summary_structure():
     assert "Cover letters have been generated" in summary
     assert "Test Matches" in subject
 
-@patch('scripts.send_email.smtplib.SMTP')
-def test_send_email_local_mode(capsys, mock_smtp):
+def test_send_email_local_mode(capsys):
     """Test local mode prints email instead of sending."""
     subject = "Test Subject"
     body = "This is a test email body."

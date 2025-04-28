@@ -31,7 +31,7 @@ def get_jobs_from_company(board_token):
         data = response.json()
         jobs = data.get("jobs", [])
         for job in jobs:
-            job["company"] = {"name": board_token.capitalize()}
+            job["company"] = board_token.capitalize()
         logger.info(f"Pulled {len(jobs)} jobs from {board_token}")
         return jobs
     except Exception as e:
@@ -39,6 +39,9 @@ def get_jobs_from_company(board_token):
         return []
 
 def filter_jobs(jobs, keywords):
+    if not keywords:
+        logger.warning("No keywords provided; returning all jobs")
+        return jobs
     matched = [
         job for job in jobs
         if any(kw.lower() in job["title"].lower() for kw in keywords)
@@ -51,6 +54,10 @@ def run():
     config = load_config()
     keywords = config["filter"]["required_keywords"]
     companies = config["greenhouse_companies"]
+
+    if not companies:
+        logger.error("No companies specified in config")
+        return []
 
     all_jobs = []
 

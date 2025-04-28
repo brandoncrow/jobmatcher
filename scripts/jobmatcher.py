@@ -19,7 +19,7 @@ def main():
     logger.info("Starting Job Matcher Pipeline...")
 
     try:
-        logger.info("[1/5] Scraping jobs from Greenhouse...")
+        logger.info("[1/5] Scraping jobs...")
         raw_jobs = scrape_greenhouse.run()
 
         logger.info("[2/5] Deduplicating historical jobs...")

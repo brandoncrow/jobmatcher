@@ -17,12 +17,13 @@ def sample_job(
         updated_at = datetime.now(timezone.utc).isoformat()
     return {
         "title": title,
-        "company": {"name": company},
-        "location": {"name": location},
+        "company": company,
+        "location": location,
         "updated_at": updated_at,
         "absolute_url": "https://example.com/job",
         "content": content
     }
+
 
 def test_deduplicate_jobs():
     jobs = [
