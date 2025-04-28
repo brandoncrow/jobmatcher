@@ -1,3 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
 venv/
 
+# Environment variables
 .env
+
+# Local generated files
+data/
+logs/
+
+# Test cache
+*.pytest_cache/

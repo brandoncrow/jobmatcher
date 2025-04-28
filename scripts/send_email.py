@@ -1,34 +1,43 @@
 import json
+import os
+import smtplib
+import ssl
 from datetime import datetime
 from pathlib import Path
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import yaml
+from dotenv import load_dotenv
 import logging
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-)
+# Setup logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-EMAIL_MODE = "local"  # "local" (print to console) or "smtp" (future swap)
+# Load environment variables
+load_dotenv()
 
+# Paths
+CONFIG_PATH = Path(__file__).resolve().parents[1] / 'config' / 'config.yaml'
 JOBS_DIR = Path(__file__).resolve().parents[1] / 'data' / 'processed'
 LETTERS_DIR = Path(__file__).resolve().parents[1] / 'data' / 'letters'
 
+def load_config():
+    with open(CONFIG_PATH, "r") as f:
+        return yaml.safe_load(f)
+
 def load_jobs():
     latest_file = sorted(JOBS_DIR.glob("jobs_*.json"))[-1]
-    logger.info(f"Loaded jobs from {latest_file}")
+    logger.info(f"Loading jobs from {latest_file}")
     with open(latest_file, "r") as f:
         return json.load(f)
 
 def load_letters():
     today = datetime.now().strftime("%Y%m%d")
-    letters = list(LETTERS_DIR.glob(f"*{today}.txt"))
-    logger.info(f"Found {len(letters)} letters for today")
-    return letters
+    return list(LETTERS_DIR.glob(f"*{today}.txt"))
 
-def compose_summary(jobs, letters):
-    job_count = len(letters)  # Match number of letters, not all jobs
-    logger.info(f"Composing summary for {job_count} jobs")
+def compose_summary(jobs, letters, subject_prefix):
+    job_count = len(letters)  # Match number of letters generated
     summary = f"Here are your top {job_count} job matches for {datetime.now().strftime('%Y-%m-%d')}:\n\n"
 
     for idx, job in enumerate(jobs[:job_count], 1):
@@ -36,31 +45,60 @@ def compose_summary(jobs, letters):
         summary += f"   Link: {job['url']}\n\n"
 
     summary += "Cover letters have been generated and saved.\n\nHave a great day!\n"
-    return summary
+    subject = f"{subject_prefix} - {datetime.now().strftime('%Y-%m-%d')}"
+    return subject, summary
 
-def send_email(subject, body):
-    if EMAIL_MODE == "local":
-        logger.info("Sending email in local mode")
-        print("="*80)
+def send_email(subject, body, config):
+    mode = config['email']['mode']
+
+    if mode == "local":
+        # Local print mode
+        print("=" * 80)
         print(f"Subject: {subject}\n")
         print(body)
-        print("="*80)
-    elif EMAIL_MODE == "smtp":
-        # Placeholder for future SMTP setup
-        logger.warning("SMTP email mode selected, but not yet implemented")
-        print("SMTP sending not implemented yet.")
+        print("=" * 80)
+        logger.info("Email printed to console (local mode).")
+    elif mode == "smtp":
+        try:
+            smtp_server = config['email']['smtp_server']
+            smtp_port = config['email']['smtp_port']
+            smtp_user = os.getenv("SMTP_USER")
+            smtp_password = os.getenv("SMTP_PASSWORD")
+            from_address = config['email']['from_address']
+            to_address = config['email']['to_address']
+
+            # Create the email
+            message = MIMEMultipart()
+            message["From"] = from_address
+            message["To"] = to_address
+            message["Subject"] = subject
+            message.attach(MIMEText(body, "plain"))
+
+            # Connect and send
+            context = ssl.create_default_context()
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls(context=context)
+                server.login(smtp_user, smtp_password)
+                server.sendmail(from_address, to_address, message.as_string())
+
+            logger.info(f"Email sent to {to_address} successfully.")
+        except Exception as e:
+            logger.error(f"Failed to send email: {e}")
+    else:
+        logger.error(f"Unknown email mode: {mode}")
 
 def run():
-    logger.info("Starting email summary process...")
-    try:
-        jobs = load_jobs()
-        letters = load_letters()
-        body = compose_summary(jobs, letters)
-        subject = f"Daily Job Matches - {datetime.now().strftime('%Y-%m-%d')}"
-        send_email(subject, body)
-        logger.info("Email summary completed successfully") 
-    except Exception as e:
-        logger.error(f"Failed to send summary: {e}")
+    logger.info("Starting email sending process...")
+
+    config = load_config()
+    jobs = load_jobs()
+    letters = load_letters()
+    subject_prefix = config['email'].get('subject_prefix', 'Job Matches')
+    subject, body = compose_summary(jobs, letters, subject_prefix)
+
+    send_email(subject, body, config)
+
+    logger.info("Email sending process completed.")
 
 if __name__ == "__main__":
     run()

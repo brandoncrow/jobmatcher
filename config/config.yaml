@@ -1,8 +1,8 @@
 # General configuration
 general:
   top_n_jobs: 5         # Number of jobs to generate letters for
-  days_old_max: 1       # Max age of job postings in days
-  email_mode: "local"   # "local" or "smtp"
+  days_old_max: 3       # Max age of job postings in days
+  # email_mode: "local"   # "local" or "smtp"
   use_gpt: false        # true or false
 
 # Search/filter configuration
@@ -45,3 +45,11 @@ greenhouse_companies:
 model:
   name: gpt-4o
   temperature: 0.5
+
+email:
+  mode: smtp  # options: "local" (print only), "smtp" (send email)
+  smtp_server: smtp.gmail.com
+  smtp_port: 587
+  from_address: brandoncrow87@gmail.com
+  to_address: brandoncrow87@gmail.com
+  subject_prefix: "Your Daily Job Matches"  # or anything you want

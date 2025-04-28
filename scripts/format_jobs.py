@@ -24,7 +24,8 @@ def deduplicate(jobs):
     seen = set()
     unique = []
     for job in jobs:
-        key = f"{job['title']}|{job['location']['name']}|{job['company']['name']}"
+        # key = f"{job['title']}|{job['location']['name']}|{job['company']['name']}"
+        key = f"{job['title']}|{job['location']}|{job['company']}"
         hash_ = hashlib.md5(key.encode()).hexdigest()
         if hash_ not in seen:
             seen.add(hash_)
@@ -50,11 +51,10 @@ def score_job(job, keywords, boost_keywords):
 def normalize(job):
     return {
         "title": job["title"],
-        "company": job["company"]["name"],
-        "location": job["location"]["name"],
-        "url": job["absolute_url"],
-        "updated_at": job["updated_at"],
-        "score": 0,  # updated later
+        "company": job["company"],
+        "location": job["location"],
+        "url": job.get("absolute_url") or job.get("url", ""),
+        "updated_at": job["updated_at"]
     }
 
 def run(jobs):
